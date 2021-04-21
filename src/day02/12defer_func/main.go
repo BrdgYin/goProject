@@ -55,6 +55,13 @@ func f4() (x int) {
 	}(x) // 当作参数传递进来
 	return 5 // 返回值 = x = 5
 }
+
+func f6() (x int) {
+	defer func(x *int) {
+		(*x)++
+	}(&x)
+	return 5 // 1.返回值 = x= 5 2. defer x = 6 3.ret x
+}
 func main() {
 	deferDemo()
 	// start
@@ -66,4 +73,5 @@ func main() {
 	fmt.Println(f2()) // 6
 	fmt.Println(f3()) // 5
 	fmt.Println(f4()) // 5
+	fmt.Println(f6()) // 5
 }
