@@ -17,6 +17,18 @@ func f3(x func(int) int) {
 	y := x(2)
 	fmt.Println(y)
 }
+
+// 函数也可以作为返回值
+func f5(x func()) func(int, int) int {
+	// 执行函数x1
+	x()
+	// 定义的内部匿名函数
+	ret := func(a, b int) int {
+		return a + b
+	}
+	return ret
+}
+
 func main() {
 	a := f1
 	fmt.Printf("%T\n", a)
@@ -27,5 +39,8 @@ func main() {
 	// func(int) int
 
 	f3(b)
+
+	c := f5(f1)
+	fmt.Println(c(1, 2))
 
 }
