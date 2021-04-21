@@ -15,4 +15,9 @@ func f1() {
 
 func main() {
 	f1()
+	// 函数内部定义的变量只能在改函数内部使用
+	for i := 10; i < 18; {
+		fmt.Println("hhhhh")
+		i++
+	}
 }
