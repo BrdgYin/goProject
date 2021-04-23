@@ -8,6 +8,13 @@
             "type": "java",
             "name": "CodeLens (Launch) - Test",
             "request": "launch",
+            "mainClass": "Test",
+            "projectName": "goProject_5338b403"
+        },
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - Test",
+            "request": "launch",
             "mainClass": "test.Test",
             "projectName": "goProject_5338b403"
         },
