@@ -1,26 +1,32 @@
 class Point {
-    private int x;
-    private int y;
+    public int x;
+    public int y;
 
     public Point(int x, int y) {
         this.x = x;
         this.y = y;
     }
 
-    public int getX() {
-        return x;
+    public String toString() {
+        return "x: " + x + ",y: " + y;
     }
 }
 
 public class Test {
-    public double dist(Point a, Point b) {
-        return Math.sqrt(Math.pow(a.getX() - b.getX(), 2) + Math.pow(a.getY() - b.getY(), 2));
+    // java中拷贝的是对象的引用
+    public void dist(Point a) {
+        a.x = 2;
+        a.y = 2;
     }
 
     public static void main(String[] args) {
-        Point a = new Point(2, 2);
-        Point b = new Point(3, 3);
-        double result = new Test().dist(a, b);
-        System.out.println(result);
+        Point A = new Point(0, 0);
+        System.out.println(A);
+        new Test().dist(A);
+        System.out.println(A);
+        // output:
+        // x: 0,y: 0
+        // x: 2,y: 2
+
     }
 }
