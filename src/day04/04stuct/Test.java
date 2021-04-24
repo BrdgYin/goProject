@@ -1,3 +1,5 @@
+import java.util.Scanner;
+
 class Point {
     public int x;
     public int y;
@@ -27,6 +29,8 @@ public class Test {
         // output:
         // x: 0,y: 0
         // x: 2,y: 2
+        Scanner sc = new Scanner(System.in);
+        int[] a = new int[2];
 
     }
 }
