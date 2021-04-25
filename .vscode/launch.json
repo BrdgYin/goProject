@@ -5,27 +5,6 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "type": "java",
-            "name": "CodeLens (Launch) - Solution",
-            "request": "launch",
-            "mainClass": "Solution",
-            "projectName": "goProject_5338b403"
-        },
-        {
-            "type": "java",
-            "name": "CodeLens (Launch) - Test",
-            "request": "launch",
-            "mainClass": "Test",
-            "projectName": "goProject_5338b403"
-        },
-        {
-            "type": "java",
-            "name": "CodeLens (Launch) - Test",
-            "request": "launch",
-            "mainClass": "test.Test",
-            "projectName": "goProject_5338b403"
-        },
-        {
             "name": "Launch",
             "type": "go",
             "request": "launch",
