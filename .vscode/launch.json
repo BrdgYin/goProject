@@ -5,19 +5,26 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "name": "Launch",
+            "type": "java",
+            "name": "Debug (Launch) - Current File",
+            "request": "launch",
+            "mainClass": "${file}"
+        },
+        {
+            "name": "Launch-go",
             "type": "go",
             "request": "launch",
             "mode": "auto",
             "remotePath": "",
-            "port":5546,
+            "port": 5546,
             "host": "127.0.0.1",
             "program": "${fileDirname}",
             "env": {
-                "GOPATH":"C:\\Users\\Administrator\\Desktop\\workspace\\goProject",
-                "GOROOT":"D:\\go"
+                "GOPATH": "C:\\Users\\Administrator\\Desktop\\workspace\\goProject",
+                "GOROOT": "D:\\go"
             },
             "args": []
         }
     ]
+
 }
