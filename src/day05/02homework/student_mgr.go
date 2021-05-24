@@ -82,7 +82,6 @@ func (s studentMgr) editStudent() {
 		id   int64
 		name string
 	)
-
 	// 获取输入
 	fmt.Println("请输入要修改得id: ")
 	fmt.Scanln(&id)
