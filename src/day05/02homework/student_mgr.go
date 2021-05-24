@@ -44,22 +44,19 @@ func (s studentMgr) addStudent() {
 	fmt.Println("请输入姓名: ")
 	fmt.Scanln(&name)
 	// 0.判断是否已存在
-	for k := range s.allStudent {
-		if k == id {
-			fmt.Println("学生已存在！")
-			// return 不是系统调用，也不是库函数，而是一个关键字，
-			// 表示调用堆栈的返回（过程活动记录），是函数的退出，而不是进程的退出。
-			return // 直接返回--终止函数
+	_, ok := s.allStudent[id]
+	if ok {
+		fmt.Println("已存在当前用户")
+		// 函数返回
+		return
+	} else {
+		// 2.存在放入map
+		s.allStudent[id] = student{
+			id:   id,
+			name: name,
 		}
+		fmt.Println("用户添加成功")
 	}
-	// 1.根据用户输入的内容创建新的学生
-	var newStu = student{
-		id:   id,
-		name: name,
-	}
-
-	// 3.存在放入map
-	s.allStudent[newStu.id] = newStu
 }
 
 // 删除学生
@@ -68,18 +65,12 @@ func (s studentMgr) deleteStudent() {
 	fmt.Println("请输入要删除的id: ")
 	var id int64
 	fmt.Scanln(&id)
-
-	var flag = true
-	// 默认是key
-	for k := range s.allStudent {
-		if k == id {
-			delete(s.allStudent, id)
-			flag = false
-		}
-	}
-	if flag {
+	// 直接查询
+	_, ok := s.allStudent[id]
+	if !ok {
 		fmt.Printf("不存在该学生")
 	} else {
+		delete(s.allStudent, id)
 		fmt.Println("删除成功")
 	}
 }
@@ -97,17 +88,18 @@ func (s studentMgr) editStudent() {
 	fmt.Scanln(&id)
 	fmt.Println("请输入name: ")
 	fmt.Scanln(&name)
-	var flag = true
 
-	for k, v := range s.allStudent {
-		if k == id {
-			v.name = name
-			flag = false
-		}
-	}
-	if flag {
+	// 直接去map中取
+	_, ok := s.allStudent[id]
+
+	if !ok {
 		fmt.Println("不存在这样的用户")
 	} else {
+		// 创建一个对象给它
+		s.allStudent[id] = student{
+			id:   id,
+			name: name,
+		}
 		fmt.Println("修改成功")
 	}
 }
