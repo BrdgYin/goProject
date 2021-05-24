@@ -16,8 +16,8 @@ func (a animal) move() {
 
 // 实现狗类
 type dog struct {
-	feet uint
-	animal
+	feet   uint
+	animal // dog将所有的animal的方法包括进来了
 }
 
 // 给dog实现方法--叫
@@ -26,5 +26,14 @@ func (d dog) speak() {
 }
 
 func main() {
+	d1 := dog{
+		feet: 4,
+		animal: animal{
+			name: "小黑",
+		},
+	}
 
+	d1.speak()
+	// animal的方法dog也可以调用
+	d1.move()
 }
